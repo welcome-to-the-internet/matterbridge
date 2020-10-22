@@ -1,0 +1,125 @@
+###################################################################
+#discord section
+###################################################################
+[discord]
+
+# You can configure multiple servers "[discord.name]" or "[discord.name2]"
+# In this example we use [discord.game]
+#REQUIRED
+[discord.wuubi]
+# Token (REQUIRED) is the token to connect with Discord API
+# You can get your token by following the instructions on
+# https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token
+# If you want roles/groups mentions to be shown with names instead of ID, you'll need to give your bot the "Manage Roles" permission.
+Token="NzY4NzY0ODUwMDMyNjA3Mjgy.X5FODw.6GuXrUtwYDSqzhGoQt50C_ctii0"
+
+# Server (REQUIRED) is the ID or name of the guild to connect to, selected from the guilds the bot has been invited to
+Server="605830911807717378"
+
+## RELOADABLE SETTINGS
+## All settings below can be reloaded by editing the file.
+## They are also all optional.
+
+# ShowEmbeds shows the title, description and URL of embedded messages (sent by other bots)
+ShowEmbeds=false
+
+# UseLocalAvatar specifies source bridges for which an avatar should be 'guessed' when an incoming message has no avatar.
+# This works by comparing the username of the message to an existing Discord user, and using the avatar of the Discord user.
+#
+# This only works if WebhookURL is set (AND the message has no avatar).
+# Example: ["irc"]
+UseLocalAvatar=[]
+
+# UseUserName shows the username instead of the server nickname
+UseUserName=false
+
+# UseDiscriminator appends the `#xxxx` discriminator when used with UseUserName
+UseDiscriminator=false
+
+# WebhookURL sends messages in the style of puppets.
+# This only works if you have one discord channel, if you have multiple discord channels you'll have to specify it in the gateway config
+# Example: "https://discordapp.com/api/webhooks/1234/abcd_xyzw"
+WebhookURL=""
+
+# EditDisable disables sending of edits to other bridges
+EditDisable=false
+
+# EditSuffix specifies the message to be appended to every edited message
+# Example: " (edited)"
+EditSuffix="(DISC)"
+
+# IgnoreNicks mutes outgoing messages from certain users.
+# Messages from these users will not be transmitted to other bridges.
+# Regular expressions are also supported.
+# Example: "ircspammer1 ircspammer2"
+IgnoreNicks=""
+
+# IgnoreMessages mutes outgoing messages of a certain format.
+# Messages matching this regular expression will not be transmitted sent to other bridges
+# See https://regex-golang.appspot.com/assets/html/index.html for more regex info
+#
+# Example that ignores messages starting with ~~ or messages containing badword:
+#   IgnoreMessages="^~~ badword"
+IgnoreMessages=""
+
+# ReplaceMessages replaces substrings of messages in outgoing messages.
+# Regular expressions are supported.
+#
+# Example that replaces 'cat' => 'dog' and 'sleep' => 'awake':
+#   ReplaceMessages=[ ["cat","dog"], ["sleep","awake"] ]
+# Example that replaces all digits with the letter 'X', so 'hello123' becomes 'helloXXX':
+#   ReplaceMessages=[ ["[0-9]","X"] ]
+ReplaceMessages=[]
+
+# ReplaceNicks replaces substrings of usernames in outgoing messages.
+# See the ReplaceMessages setting for examples.
+# Example: [ ["user--","user"] ]
+ReplaceNicks=[]
+
+# ExtractNicks allows for interoperability with other bridge software by rewriting messages and extracting usernames.
+#
+# Recommended reading:
+# - https://github.com/42wim/matterbridge/issues/466
+# - https://github.com/42wim/matterbridge/issues/713
+#
+# This example translates the following message
+#   "Relaybot: <relayeduser> something interesting"
+# into this message
+#   "relayeduser: something interesting"
+# like so:
+#   ExtractNicks=[ [ "Relaybot", "<(.*?)>\\s+" ] ]
+#
+# This example translates the following message
+#   "otherbot: (relayeduser) something else"
+# into this message
+#   "relayeduser: something else"
+# like so:
+#   ExtractNicks=[ [ "otherbot","\\((.*?)\\)\\s+" ] ]
+#
+# This example combines both of the above examples into one:
+#   ExtractNicks=[ [ "Relaybot", "<(.*?)>\\s+" ],[ "otherbot","\\((.*?)\\)\\s+" ]
+#
+ExtractNicks=[]
+
+# Label is as an extra identifier for use in the RemoteNickFormat setting.
+Label=""
+
+# RemoteNickFormat formats how remote users appear on this bridge.
+# See the [general] config section for default options
+RemoteNickFormat="[{PROTOCOL}] <{NICK}> "
+
+# ShowJoinPart emits messages that show joins/parts from other bridges
+# Supported from the following bridges: irc, mattermost, slack, discord
+ShowJoinPart=false
+
+# StripNick strips non-alphanumeric characters from nicknames.
+# Recommended reading: https://github.com/42wim/matterbridge/issues/285
+StripNick=false
+
+# ShowTopicChange emits messages that show topic/purpose updates from other bridges
+# Supported from the following bridges: slack
+ShowTopicChange=false
+
+# SyncTopic synchronises topic/purpose updates from other bridges
+# Supported from the following bridges: slack
+SyncTopic=false
